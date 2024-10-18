@@ -1,85 +1,48 @@
-API (Crypto API)
-https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false
+CryptoChains
+CryptoChains is a cryptocurrency website that allows users to explore, compare, and track their favorite cryptocurrencies. It provides real-time data fetched from the CoinGecko API and includes features like a watchlist, favorite coins, and detailed statistics for each cryptocurrency.
 
-// coins == 100 coins
+Features
+Cryptocurrency Listings: View a list of cryptocurrencies with their current prices, volume, market cap, and other details.
+Search Functionality: Search for specific cryptocurrencies by name or symbol.
+Favorites & Watchlist: Add coins to your watchlist or mark them as favorites for easy access.
+Compare Page: Compare multiple cryptocurrencies across various metrics such as market trends, price changes, and historical data.
+Pagination: Navigate through multiple pages of cryptocurrency data.
+Responsive Design: The website is fully responsive and optimized for devices of all sizes, including 4K screens.
+Tech Stack
+Frontend:
 
-// PaginatedCoins -> Page 1 - coins.slice(0,10)
-// PaginatedCoins -> Page 2 = coins.slice(10,20)
-// PaginatedCoins -> Page 3 = coins.slice(20,30)=> (3-1)*10=  20(initial count)
-// .
-// .
-// PaginatedCoins -> Page 10 = coins.slice(90,100)
+React.js
+Tailwind CSS
+Material UI (MUI) components
 
-// PaginatedCoins -> Page X , then initial Count = (X-1)*10
-// coins.slice(initialCount,initialCount+10)
+API:
 
-API -> Coin description -> https://api.coingecko.com/api/v3/coins/
+CoinGecko API for fetching real-time cryptocurrency data.
 
- axios
-      .get(`https://api.coingecko.com/api/v3/coins/${id}`)
-      .then((response) => {
-        console.log("response", response);
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
-  }, []);
+Usage
+View Cryptocurrencies: Browse the main page to view a list of cryptocurrencies and their current statistics.
+Search: Use the search bar to find a specific coin.
+Compare: Navigate to the Compare page to select and compare two or more cryptocurrencies.(Upcomming)
+Add to Watchlist: Click the star icon to add a cryptocurrency to your favorites or watchlist. (Upcomming)
+View Favorites: Access the Favorites page to see your saved cryptocurrencies. (Upcomming)
 
+API Integration
+The application integrates with CoinGecko's public API to fetch cryptocurrency data, including:
 
+Market data (prices, volumes, market cap)
+Historical data (price history)
+Coin details (name, symbol, description)
 
-  Chart.js
-  import React from "react";
-import { Line } from "react-chartjs-2";
-import { Chart as ChartJS } from "chart.js/auto"; //Dont get rid of this
+API Endpoints
+List all coins: /coins/markets
+Coin details: /coins/{id}
+Historical data: /coins/{id}/market_chart
+Search coins: /search
 
-function Chart({ chartData, multiAxis }) {
-  const options = {
-    plugins: {
-      legend: {
-        display: multiAxis ? true : false,
-      },
-    },
-    responsive: true,
-    interaction: {
-      mode: "index",
-      intersect: false,
-    },
-    scales: {
-      crypto1: {
-        position: "left",
-      },
-      crypto2: multiAxis && {
-        position: "right",
-      },
-    },
-  };
+Contributing
+Contributions are welcome! Please fork this repository, make changes, and submit a pull request.
 
-  return <Line data={chartData} options={options} />;
-}
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-export default Chart;
-
-
-// This function is for getting the coin prices in the coin description area
-import axios from "axios";
-// tis below price type is used for this handel type of pricing change
-export const getCoinPrices = (id, days, priceType) => {
-  const prices = axios
-    .get(
-      `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&interval=daily`
-    )
-    .then((response) => {
-      console.log("prices >>>", response.data.prices);
-      //return response.data.prices; -> it was written before we wrote the pricing chane according to price marketCap
-      //After changes and we will pass the prices in the second code i mean coinDescription ifi pass prices then prices wll show it i pass total_Volume then total volume will show  like this
-      return response.data[priceType];
-    })
-    .catch((error) => {
-      console.log("No prices found");
-    })
-    .finally(() => {
-      console.log("Prices code run succesfully");
-    });
-  return prices;
-};
-
+Feel free to customize this as per your specific project setup and features.
