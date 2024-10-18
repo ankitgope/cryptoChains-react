@@ -20,7 +20,7 @@ const Navbar = () => {
       <h1 className="text-gold text-xl md:text-2xl font-bold">CryptoChains.</h1>
 
       {/* Links for larger screens */}
-      <div className="hidden md:flex space-x-4 items-center">
+      <div className="hidden md:flex space-x-4 items-center pr-5">
         <NavLink to="/" className={active}>
           Home
         </NavLink>
