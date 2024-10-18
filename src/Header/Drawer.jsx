@@ -33,8 +33,9 @@ export default function AnchorTemporaryDrawer() {
         <div className=' flex flex-col w-60 bg-electric h-full text-center p-2 space-y-2 '>
         <NavLink to="/" className={active}>Home</NavLink>
         <NavLink to="/coins" className={active}>Coins</NavLink>
-        <NavLink to="/compare" className={active}>Compare</NavLink>
-        <NavLink to="/watchlist" className={active}>Watchlist</NavLink>
+        {/* <NavLink to="/compare" className={active}>Compare</NavLink>
+        <NavLink to="/watchlist" className={active}>Watchlist</NavLink> */}
+        <NavLink to="/dashboard" className={active}>Dasboard</NavLink>
       </div>
       </Drawer>
     </div>

@@ -1,24 +1,21 @@
 import React from "react";
 import "../index.css";
 import BasicButtons from "../Components/Buttons/Buttons";
-//import gradient from "../assets/gradient.png";
+
 import iphone from "../assets/iphone.png";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 const LandingPage = () => {
   const navigate = useNavigate();
   return (
-    <div className="container flex gap-5 m-5 ">
-      <div className="relative w-1/2 ml-auto max-800:hidden items-center max-1023:ml-9 max-1023:mt-16 max-1023:-mr-6 ">
-        {/* <img 
-            src={gradient} 
-            alt="gradient" 
-            className="absolute w-[240px] left-12 top-1 sm:w-[250px]  max-1021:hidden"
-          /> */}
+    <div className="container flex gap-5 pl-5 pr-5   flex-wrap max-800:flex-col-reverse">
+      <div className="relative w-full max-800:w-full max-1023:ml-9 max-1023:mt-16 max-1023:-mr-6 max-800:ml-auto flex mt-7 justify-center">
+        {/* Adjusted the image size and layout for mobile devices */}
         <motion.img
           src={iphone}
           alt="iphone"
-          className="absolute w-[300px]  right-2.5  top-3 items-center max-1017:pl-6 max-1021:pl-6"
+          className="absolute w-[240px] sm:w-[250px] right-2.5 top-1 items-center max-1023:pl-6 
+               max-800:relative max-800:w-3/4 max-800:h-auto max-800:max-h-[300px] max-800:left-0 max-800:right-0 max-800:mx-auto object-contain flex-wrap"
           initial={{ x: -10 }}
           animate={{ y: 10 }}
           transition={{
@@ -29,10 +26,11 @@ const LandingPage = () => {
           }}
         />
       </div>
+
       {/* right part */}
-      <div className="container ml-9 max-2560:items-center justify-center mt-20 ">
+      <div className="container   max-2560:items-center justify-center mt-20 overflow-auto max-800:flex max-800:flex-col  ">
         <h1
-          className="text-6xl sm:text-4xl md:text-8xl 
+          className="text-6xl max-432:text-sm max-432:pl-12 md:text-8xl max-1023:text-7xl
          text-black hover:text-white custom-title font-semibold mb-4  "
         >
           Track Crypto
