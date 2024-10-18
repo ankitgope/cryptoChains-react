@@ -28,7 +28,7 @@ const LandingPage = () => {
       </div>
 
       {/* right part */}
-      <div className="container   max-2560:items-center justify-center mt-20 overflow-auto max-800:flex max-800:flex-col  ">
+      <div className="container pl-20  max-2560:items-center justify-center mt-20 overflow-auto max-800:flex max-800:flex-col  ">
         <h1
           className="text-6xl max-432:text-sm max-432:pl-12 md:text-8xl max-1023:text-7xl
          text-black hover:text-white custom-title font-semibold mb-4  "
