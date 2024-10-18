@@ -1,0 +1,6 @@
+.custom-title {
+  /* Prefix required. Even Firefox only supports the -webkit- prefix */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  transition: color 0.3s ease;
+}
