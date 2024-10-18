@@ -1,4 +1,5 @@
 **CryptoChains**
+
 CryptoChains is a cryptocurrency website that allows users to explore, compare, and track their favourite cryptocurrencies. It provides real-time data from the CoinGecko API and includes features like a watchlist, favourite coins, and detailed statistics for each cryptocurrency.
 
 Features
