@@ -5,10 +5,10 @@ export default {
     extend: {
       screens: {
         "max-768": { max: "768px" },
-        "max-432": { max: "432px" },
+        "max-472": { max: "472px" },
         "max-800": { max: "800px" },
         "max-1017": { max: "1017px" },
-        "max-1023": { max: "1023px" },
+        "max-1024": { max: "1023px" },
         "max-2560": { max: "2560px" },
       },
       colors: {
