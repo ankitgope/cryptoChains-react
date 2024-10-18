@@ -18,9 +18,9 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/coins" element={<CoinPage />} />
         <Route path="/coins/:id" element={<CoinsDescription/>} />
-        <Route path="/favourites" element ={<Favourites/>}/>
+        {/* <Route path="/favourites" element ={<Favourites/>}/> */}
         <Route  path="/compare" element={<Compare/>}/>
-        <Route path="/favourites" element={<Favourites/>}/>
+        {/* <Route path="/favourites" element={<Favourites/>}/> */}
         <Route path="/dashboard" element={<DashBoard/>}/>
       </Route>
     )
