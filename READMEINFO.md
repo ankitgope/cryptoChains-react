@@ -280,3 +280,54 @@ async function getData() {
     }
   }
 
+
+import React, { useState } from "react";
+import { 
+  FacebookShareButton, 
+  EmailShareButton, 
+  WhatsappShareButton, 
+  FacebookIcon, 
+  EmailIcon, 
+  WhatsappIcon 
+} from "react-share";
+import Button from "@mui/material/Button";
+import { Box } from "@mui/material";
+
+const ShareAppButton = () => {
+  const [showShareOptions, setShowShareOptions] = useState(false);
+  const shareUrl = "https://yourapp.com"; // Replace with your app's URL
+  const title = "Check out this app!";
+
+  return (
+    <div>
+      <Button
+        variant="outlined"
+        onClick={() => setShowShareOptions(!showShareOptions)}
+        sx={{
+          borderRadius: "20px",
+        }}
+      >
+        Share App
+      </Button>
+
+      {showShareOptions && (
+        <Box mt={2} display="flex" justifyContent="space-around">
+          <FacebookShareButton url={shareUrl} quote={title}>
+            <FacebookIcon size={32} round />
+          </FacebookShareButton>
+
+          <EmailShareButton url={shareUrl} subject={title} body="Check this out!">
+            <EmailIcon size={32} round />
+          </EmailShareButton>
+
+          <WhatsappShareButton url={shareUrl} title={title}>
+            <WhatsappIcon size={32} round />
+          </WhatsappShareButton>
+        </Box>
+      )}
+    </div>
+  );
+};
+
+export default ShareAppButton;
+

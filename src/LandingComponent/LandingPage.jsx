@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "../index.css";
 import BasicButtons from "../Components/Buttons/Buttons";
-
 import iphone from "../assets/iphone.png";
-import { motion } from "framer-motion";
+import { motion, px } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import {
+  EmailIcon,
+  EmailShareButton,
+  FacebookIcon,
+  FacebookShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+} from "react-share";
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const [showShareOptions, setShowShareOption] = useState(false);
+  const shareUrl = "https://crypto-chains.vercel.app/";
+  const title = "Check this App";
   return (
     <div className="w-full flex gap-4 px-5 flex-wrap max-800:flex-col-reverse max-800:gap-0">
       {/* Image Section */}
@@ -54,11 +64,38 @@ const LandingPage = () => {
           <BasicButtons
             variant="outlined"
             text="Share App"
+            onClick={() => setShowShareOption(!showShareOptions)}
             sx={{
               borderRadius: "20px",
             }}
           />
         </div>
+        {showShareOptions && (
+          <div
+            style={{
+              marginTop: "16px",
+              display: "flex",
+              justifyContent: "space-evenly",
+              width: "300px",
+            }}
+          >
+            <FacebookShareButton url={shareUrl} quote={title}>
+              <FacebookIcon size={32} round />
+            </FacebookShareButton>
+
+            <EmailShareButton
+              url={shareUrl}
+              subject={title}
+              body="Check this out!"
+            >
+              <EmailIcon size={32} round />
+            </EmailShareButton>
+
+            <WhatsappShareButton url={shareUrl} title={title}>
+              <WhatsappIcon size={32} round />
+            </WhatsappShareButton>
+          </div>
+        )}
       </div>
     </div>
   );
